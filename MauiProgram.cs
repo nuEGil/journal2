@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-
+using journal2.Services;
 namespace journal2;
 
 public static class MauiProgram
@@ -14,6 +14,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+		builder.Services.AddSingleton<IFileExplorer, FileExplorer>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

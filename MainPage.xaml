@@ -4,7 +4,6 @@
              x:Class="journal2.MainPage">
 
     <AbsoluteLayout>
-       
         <!-- Scrollable content -->
         <CollectionView x:Name="FileList" 
                             ItemsSource="{Binding Files}"
@@ -23,7 +22,6 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     
-
         <!-- Floating circular button -->
         <Button
                 AbsoluteLayout.LayoutFlags="PositionProportional"

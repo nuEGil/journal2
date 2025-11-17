@@ -1,9 +1,5 @@
 using Microsoft.Maui.Storage;
-using System.Diagnostics.Metrics;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-
 namespace journal2;
 // Partial because it is shared with the WritingArea.xaml
 public partial class WritingArea : ContentPage // you could inherit from FlyoutPage here. 
