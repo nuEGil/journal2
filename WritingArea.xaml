@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="journal2.WritingArea"
+             Title="WritingArea">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Top UI -->
+        <VerticalStackLayout Grid.Row="0" Spacing="5" Padding="10">
+            <Entry x:Name="myEntry"
+               Placeholder="File name ..."
+               TextChanged="OnNameChanged"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="back" Clicked="OnBackClicked"/>
+                <Button Text="save" Clicked="OnSaveClicked"/>
+                <Button Text="delete" Clicked="OnDeleteClicked"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <Editor 
+                Grid.Row="1"
+                x:Name="myEditor" 
+                Margin="10"
+                TextColor="Black"
+                BackgroundColor="FloralWhite"
+                AutoSize="Disabled"
+                />
+    </Grid>
+
+</ContentPage>

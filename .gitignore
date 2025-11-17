@@ -1,0 +1,60 @@
+## Build results
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+
+## Visual Studio user-specific files
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+## MAUI platform-specific junk
+**/Platforms/Android/*/objs/
+**/Platforms/Android/*/bin/
+**/Platforms/iOS/*/obj/
+**/Platforms/iOS/*/bin/
+**/Platforms/MacCatalyst/*/obj/
+**/Platforms/MacCatalyst/*/bin/
+**/Platforms/Tizen/*/obj/
+**/Platforms/Tizen/*/bin/
+
+## Auto-generated stuff
+*.cache
+*.db
+*.db-shm
+*.db-wal
+
+## Logs
+*.log
+
+## NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+## Rider / JetBrains
+.idea/
+*.iml
+
+## VS Code
+.vscode/
+.history/
+
+## Maui Hot Reload artifacts
+**/hotreload/
+**/HotReload/
+
+## OS crap
+.DS_Store
+Thumbs.db
+
+## Dotnet user secrets (if ever used)
+**/secrets.json
+
+## Local configuration / environment
+appsettings.*.json

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="journal2.SearchPage">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <!-- Search Section -->
+        <HorizontalStackLayout Spacing="10">
+
+            <Entry 
+            x:Name="SearchEntry"
+            Placeholder="Enter keyword..."
+            HorizontalOptions="FillAndExpand" />
+
+            <Button 
+                x:Name="GoButton"
+                Text="Go"
+                Clicked="OnSearchClicked"
+                VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <Label 
+            Text="Results:"
+            FontAttributes="Bold"
+            FontSize="18"
+            />
+
+        <!-- Results List -->
+        <CollectionView x:Name="ResultsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,5" Padding="10" BorderColor="LightGray">
+                        <Label Text="{Binding}" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+    </VerticalStackLayout>
+    
+
+</ContentPage>
