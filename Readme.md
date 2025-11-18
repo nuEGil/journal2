@@ -40,6 +40,9 @@ you have class, struct, and record for your user defined types.
 
 3. add back in the button on the home page to generate new text files -- the + button. --> In an old version this button pressed would push a new instance of a page to the page stack - hence the pop command that is left behind in the back button on the writing area .xaml.cs. 
 
+4. need to add in encryption.
+5. need to add in some http request functionality to serve algos and data from a server. real apps have some amount of local and some amount of server functionality, and they just swap between the 2 rapidly. 
+
 
 
 # some dotnet commands (add more here)
