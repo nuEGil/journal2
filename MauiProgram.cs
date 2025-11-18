@@ -25,6 +25,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<IFileExplorer, FileExplorer>();
         builder.Services.AddSingleton<IKeywordService, KeywordService>();
         builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
+        builder.Services.AddSingleton<IFileSeeder, FileSeeder>();
 
         // ------------------------------
         // ViewModels
@@ -47,6 +48,10 @@ public static class MauiProgram
         // ------------------------------
         var db = app.Services.GetRequiredService<IDataBaseInitializer>();
         db.DBInitAsync().Wait();   // safe at startup
+
+        var db2 = app.Services.GetRequiredService<IFileSeeder>();
+        db2.SeedAsync().Wait();   // safe at startup
+
 
         return app;
     }
