@@ -44,7 +44,8 @@ you have class, struct, and record for your user defined types.
 
 # some dotnet commands (add more here)
 install visual studio to get all the dotnet goodies, and nuget, and then never open it again. vim, emacs, vscode.
-dotnet workload list
-dotnet workload install maui 
-dotnet workload install android
-dotnet build -t:Run -f:net9.0-android
+
+    dotnet workload list
+    dotnet workload install maui 
+    dotnet workload install android
+    dotnet build -t:Run -f:net9.0-android
