@@ -7,6 +7,7 @@ namespace journal2.Services
     {
         Task<int> GetOrCreateFileId(string filename);
         Task InsertKeywordEntry(int fileId, string keyword, string fullText);
+         Task<List<string>> FindFilesByKeyword(string keyword);
     }
 
     public class DatabaseService : IDatabaseService
@@ -61,6 +62,36 @@ namespace journal2.Services
             cmd.Parameters.AddWithValue("$time", DateTime.Now.ToString("o"));
 
             await cmd.ExecuteNonQueryAsync();
+        }
+    
+        public async Task<List<string>> FindFilesByKeyword(string keyword)
+        {
+            using var conn = GetConnection();
+            await conn.OpenAsync();
+
+            // This finds all file_ids where entries contain the keyword
+            var cmd = conn.CreateCommand();
+            cmd.CommandText =
+            """
+            SELECT DISTINCT f.filename
+            FROM entries e
+            JOIN files f ON e.file_id = f.id
+            WHERE e.wordset = $kw;
+            """;
+
+            cmd.Parameters.AddWithValue("$kw", keyword.ToLower());
+
+            var result = new List<string>();
+
+            using (var reader = await cmd.ExecuteReaderAsync())
+            {
+                while (await reader.ReadAsync())
+                {
+                    result.Add(reader.GetString(0)); // filename
+                }
+            }
+
+            return result;
         }
     }
 }

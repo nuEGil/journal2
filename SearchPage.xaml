@@ -3,42 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="journal2.SearchPage">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
+    <VerticalStackLayout Padding="20">
 
-        <!-- Search Section -->
-        <HorizontalStackLayout Spacing="10">
+        <Entry x:Name="KeywordEntry"
+               Placeholder="Enter keyword to search" />
 
-            <Entry 
-            x:Name="SearchEntry"
-            Placeholder="Enter keyword..."
-            HorizontalOptions="FillAndExpand" />
+        <Button Text="Search"
+                Clicked="OnSearchClicked" />
 
-            <Button 
-                x:Name="GoButton"
-                Text="Go"
-                Clicked="OnSearchClicked"
-                VerticalOptions="Center" />
-        </HorizontalStackLayout>
-
-        <Label 
-            Text="Results:"
-            FontAttributes="Bold"
-            FontSize="18"
-            />
-
-        <!-- Results List -->
-        <CollectionView x:Name="ResultsList">
+        <CollectionView x:Name="ResultsList"
+                        ItemsSource="{Binding Results}"
+                        SelectionChanged="OnResultSelected">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="0,5" Padding="10" BorderColor="LightGray">
-                        <Label Text="{Binding}" />
-                    </Frame>
+                    <Label Text="{Binding}" />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-
     </VerticalStackLayout>
-    
-
 </ContentPage>
