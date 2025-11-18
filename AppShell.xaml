@@ -22,7 +22,7 @@
     <FlyoutItem Title = "Dashboard" 
                 FlyoutDisplayOptions = "AsMultipleItems">
         <ShellContent
-             Title="Home Page"
+             Title="HOME"
              ContentTemplate="{DataTemplate local:MainPage}"
              Route="home" />
 
