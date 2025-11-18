@@ -23,6 +23,8 @@ public static class MauiProgram
         // ------------------------------
         builder.Services.AddSingleton<IDataBaseInitializer, DataBaseInitializer>();
         builder.Services.AddSingleton<IFileExplorer, FileExplorer>();
+        builder.Services.AddSingleton<IKeywordService, KeywordService>();
+        builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
 
         // ------------------------------
         // ViewModels
