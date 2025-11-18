@@ -6,6 +6,7 @@ namespace journal2;
 public partial class SearchPage : ContentPage
 {
     private readonly IDatabaseService _db;
+    private readonly IKeywordService _kws;
 
     public ObservableCollection<string> Results { get; set; } = new();
 
@@ -51,7 +52,7 @@ public partial class SearchPage : ContentPage
         // full file path
         var fullPath = Path.Combine(FileSystem.AppDataDirectory, filename);
 
-        await Navigation.PushAsync(new WritingArea(fullPath));
+        await Navigation.PushAsync(new WritingArea(_db, _kws, fullPath, 0));
 
         ((CollectionView)sender).SelectedItem = null;
     }

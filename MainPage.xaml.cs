@@ -1,10 +1,13 @@
 ﻿using journal2.ViewModels;
 using journal2.Services;
+using System.Security.Cryptography.X509Certificates;
 
 namespace journal2
 {
     public partial class MainPage : ContentPage
-    {
+    {   
+        private readonly IDatabaseService _db;
+        private readonly IKeywordService _kws;
         private readonly MainPageViewModel _vm;
 
         public MainPage(MainPageViewModel vm)
@@ -26,8 +29,10 @@ namespace journal2
 
         private async void OnNextPageClicked(object sender, EventArgs e)
         {
+            string fullPath = Path.Combine(FileSystem.AppDataDirectory, $"note_{_vm.Files.Count}.txt");
             await Navigation.PushAsync(
-                new WritingArea(inputFilePath: null, count: _vm.Files.Count));
+                new WritingArea(_db, _kws, fullPath, count: _vm.Files.Count));
+                
         }
 
         private async void OnFileSelected(object sender, SelectionChangedEventArgs e)
@@ -35,7 +40,7 @@ namespace journal2
             var selected = e.CurrentSelection.FirstOrDefault() as FileItem;
             if (selected == null) return;
 
-            await Navigation.PushAsync(new WritingArea(selected.Path));
+            await Navigation.PushAsync(new WritingArea(_db, _kws, selected.Path, count: _vm.Files.Count));
 
             Console.WriteLine($"Opening file: {selected.Path}");
 
