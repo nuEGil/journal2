@@ -3,35 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="journal2.MainPage">
 
-    <AbsoluteLayout>
-        <!-- Scrollable content -->
-        <CollectionView x:Name="FileList" 
-                            ItemsSource="{Binding Files}"
-                            SelectionMode = "Single"
-                            SelectionChanged = "OnFileSelected">
+    <StackLayout Padding="20">
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Padding="10" Margin="5"
-                        BackgroundColor="{Binding BubbleColor}"
-                        HorizontalOptions="{Binding Alignment}">
-                        <Label Text="{Binding Name}" 
-                            TextColor="Black"/>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    
-        <!-- Floating circular button -->
-        <Button
-                AbsoluteLayout.LayoutFlags="PositionProportional"
-                AbsoluteLayout.LayoutBounds="0.9,1,60,60"
-                Text="+"
-                FontSize="28"
-                CornerRadius="30"
-                BackgroundColor="#007AFF"
-                TextColor="White"
-                Clicked="OnNextPageClicked" />
-        
-    </AbsoluteLayout>
+        <Button Text="Refresh"
+                Command="{Binding RefreshCommand}" />
+
+       <CollectionView x:Name="FileList" Grid.Row="1"
+                    ItemsSource="{Binding Files}"
+                    SelectionMode = "Single"
+                    SelectionChanged = "OnFileSelected">
+
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Border Padding="10" Margin="5"
+                   BackgroundColor="{Binding BubbleColor}"
+                   HorizontalOptions="{Binding Alignment}">
+                <Label Text="{Binding Name}" 
+                       TextColor="Black"/>
+            </Border>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    </StackLayout>
+
 </ContentPage>

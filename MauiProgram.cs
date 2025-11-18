@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using journal2.Services;
+using journal2.ViewModels;
 namespace journal2;
 
 public static class MauiProgram
@@ -15,6 +16,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 		builder.Services.AddSingleton<IFileExplorer, FileExplorer>();
+		builder.Services.AddSingleton<MainPageViewModel>();
+		builder.Services.AddSingleton<MainPage>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

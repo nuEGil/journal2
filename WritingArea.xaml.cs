@@ -32,7 +32,7 @@ public partial class WritingArea : ContentPage // you could inherit from FlyoutP
        
     }
     // Leave this page
-    private void OnNameChanged(object sender, TextChangedEventArgs e)
+    private async void OnNameChanged(object sender, TextChangedEventArgs e)
     {
         // sanitize name (no empty strings, no invalid file chars)
         string input = e.NewTextValue;
