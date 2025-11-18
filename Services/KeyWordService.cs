@@ -10,7 +10,7 @@ namespace journal2.Services
     {
         private readonly string[] _keywords = new[]
         {
-            "love", "passion", "faith", "war",
+            "love", "passion", "faith", "war", "storm",
             "time","seconds","minutes","days","weeks","months","years","hours",
             "mind","mental","memory","memories",
             "think","thinking","thought","thoughts",
