@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace journal2.Services
 {
-    public struct FileItem
+    public class FileItem
     {
         public string Name { get; set; }
         public string Path { get; set; }
@@ -14,17 +14,15 @@ namespace journal2.Services
     public interface IFileExplorer
     {
         ObservableCollection<FileItem> Files { get; set; }
-        Task GetTextFilesAsync();
+        void GetTextFiles();
 
     }
     // File Explorer implements a class that is IFileExplorer
     public class FileExplorer : IFileExplorer
     {    // data structure to groupfile name and path -- good for database stuff later
-
-
         public ObservableCollection<FileItem> Files { get; set; } = new();
 
-        public async Task GetTextFilesAsync()
+        public void GetTextFiles()
         {
             Files.Clear(); // Make sure that the old file list is not being loaded too - start clean
 
